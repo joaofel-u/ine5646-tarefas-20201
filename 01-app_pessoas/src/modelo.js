@@ -25,8 +25,11 @@ class Pessoa {
  * @returns [Pessoa]
  */
 function selecionaPessoas (pessoas, idadeLimite) {
-  // FIXME Bug 
-  return pessoas
+  let maisVelhoQue = idade => p => p.__idade > idade
+
+  let maisVelhas = pessoas.filter(maisVelhoQue(idadeLimite))
+
+  return maisVelhas
 }
 
 // Dados fictícios
@@ -38,6 +41,6 @@ const pessoas =
     new Pessoa('Marildo De Lusoneta', 29)
   ]
 
-const idadeMinima = 30
+const idadeMinima = 25
 
 export {pessoas, idadeMinima, Pessoa, selecionaPessoas}
